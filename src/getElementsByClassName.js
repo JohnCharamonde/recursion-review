@@ -59,9 +59,9 @@
 // var getElementsByClassName = function (className) {
 //   var matchingElements = [];
 
-  //  if (document.body !== null && document.body !== undefined) {
-  //   var allDivs = Object.entries(document.body.getElementsByTagName('div'));
-  //  }
+//  if (document.body !== null && document.body !== undefined) {
+//   var allDivs = Object.entries(document.body.getElementsByTagName('div'));
+//  }
 
 //   // if (allDivs.length !== 0 && allDivs !== undefined) {
 //   //   for (let i = 0; i < allDivs.length; i++) {
@@ -158,16 +158,15 @@ var getElementsByClassName = function (className) {
     }
 
     if (element.hasChildNodes()) {
-      var childNodesArray = Array.from(element.childNodes)
-      for(let i = 0; i < childNodesArray.length; i++) {
-      pushElements(childNodesArray[i]);
-       }
+      for (let i = 0; i < element.childNodes.length; i++) {
+        pushElements(element.childNodes[i]);
+      }
     }
   }
 
- pushElements(document.body);
+  pushElements(document.body);
 
- return matchingElements;
+  return matchingElements;
 
 }
 
