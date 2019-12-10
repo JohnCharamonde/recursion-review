@@ -34,25 +34,62 @@
 // retuern output
 
 
-var getElementsByClassName = function(className) {
-    var matchingElements = [];
-    var classList = document.body.querySelectorAll('div')
+// var getElementsByClassName = function (className) {
+//   var matchingElements = [];
 
-    var inner = function(element) {
-      if(Array.isArray(element)) {
-        getElementsByClassName(element)
-      }
+//   // if (document.body !== null && document.body !== undefined) {
+//     var allDivs = Object.entries(document.body.getElementsByTagName('div'));
+//   // }
+//   console.log(allDivs)
+//   if (allDivs.length !== 0 && allDivs !== undefined) {
+//     for (let i = 0; i < allDivs.length; i++) {
+//       if (allDivs[i].childNodes.length > 0) {
+//         getElementsByClassName(allDivs[i]);
+//       } else if (allDivs[i].className === className) {
+//         matchingElements.push(allDivs[i]);
+//       }
+//     }
+//   }
 
-      if(element.className === className) {
-        matchingElements.push(element);
-      }
-    }
+//   return matchingElements;
+// };
 
-    for(let i = 0; i < classList.length; i++) {
-      inner(element);
-    }
+// console.log(getElementsByClassName('targetClassList'))
 
-    return matchingElements;
-  };
+var getElementsByClassName = function (className) {
+  var matchingElements = [];
 
-  console.log(getElementsByClassName("targetClassName"));
+   if (document.body !== null && document.body !== undefined) {
+    var allDivs = Object.entries(document.body.getElementsByTagName('div'));
+   }
+  // console.log(allDivs)
+  // if (allDivs.length !== 0 && allDivs !== undefined) {
+  //   for (let i = 0; i < allDivs.length; i++) {
+  //     if (allDivs[i].childNodes.length > 0) {
+  //       getElementsByClassName(allDivs[i]);
+  //     } else if (allDivs[i].className === className) {
+  //       matchingElements.push(allDivs[i]);
+  //     }
+  //   }
+  // }
+
+  for (var i=0; i<allDivs.length; i++) {
+    // console.log(allDivs[i])
+  //  for (var j=0; j<allDivs[i].length; j++) {
+     if(allDivs[i][1].classList.contains('targetClassName') === true) {
+       console.log(allDivs[i][1])
+    //  console.log(allDivs[i][1].className)
+     matchingElements.push(allDivs[i][1])
+    //  }
+
+   }
+
+
+
+  }
+
+  // return matchingElements;
+  console.log(matchingElements)
+};
+
+console.log(getElementsByClassName('targetClassList'))
